@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: Segoe UI, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f9fa;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
+            padding: 24px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .header {
+            color: #156082;
+            margin-top: 0;
+            font-size: 20px;
+            border-bottom: 2px solid #156082;
+            padding-bottom: 8px;
+        }
+
+        .field {
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            background: #e8f4fc;
+            color: #156082;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2 class="header">New Todo Notification</h2>
+        <p>A new task has been registered in the Todo List system:</p>
+        <div class="field"><strong>Title:</strong> <span th:text="${todo.title}">Sample Task</span></div>
+        <div class="field"><strong>Description:</strong> <span th:text="${todo.description}">Description</span></div>
+        <div class="field"><strong>Due Date:</strong> <span th:text="${todo.dueDate}">2026-09-30</span></div>
+        <div class="field"><strong>Status:</strong> <span class="badge"
+                th:text="${todo.completed} ? 'Completed' : 'Pending'">Pending</span></div>
+        <hr style="border: none; border-top: 1px solid #eee; margin-top: 24px;" />
+        <p style="font-size: 12px; color: #777; margin: 0;">Automated notification from Web Programming (WEPR330479).
+        </p>
+    </div>
+</body>
+
+</html>

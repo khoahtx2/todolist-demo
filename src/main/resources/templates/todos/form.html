@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Todo form</title>
+    <style>
+        body {
+            font-family: Segoe UI, sans-serif;
+            margin: 24px;
+            max-width: 520px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        input[type=text],
+        textarea,
+        input[type=date] {
+            width: 100%;
+            padding: 6px;
+        }
+
+        .err {
+            color: #b00020;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 th:text="${todoId == null} ? 'New todo' : 'Edit todo'">New todo</h1>
+    <form th:object="${todo}" method="post" th:action="${todoId == null} ? @{/todos} : @{/todos/{id}(id=${todoId})}">
+        <label>Title</label>
+        <input type="text" th:field="*{title}" />
+        <div class="err" th:errors="*{title}"></div>
+        <label>Description</label>
+        <textarea th:field="*{description}" rows="4"></textarea>
+        <div class="err" th:errors="*{description}"></div>
+        <label>Due date</label>
+        <input type="date" th:field="*{dueDate}" />
+        <label>
+            <input type="checkbox" th:field="*{completed}" /> Completed
+        </label>
+        <p>
+            <button type="submit">Save</button>
+            <a th:href="@{/todos}">Cancel</a>
+        </p>
+    </form>
+</body>
+
+</html>
