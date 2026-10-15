@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+// spring bean
 @Controller
 @RequestMapping("/todos") // http://localhost:8080/todos
 public class TodoController {
